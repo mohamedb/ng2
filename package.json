@@ -1,0 +1,29 @@
+{
+  "name": "ng2",
+  "version": "1.0.0",
+  "description": "Expérimental <br>\r \tNG2",
+  "main": "index.js",
+  "scripts": {
+    "tsc": "tsc -p src -w",
+    "start": "live-server --open=src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mohamedb/ng2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mohamedb/ng2/issues"
+  },
+  "homepage": "https://github.com/mohamedb/ng2#readme",
+  "dependencies": {
+    "angular2": "2.0.0-alpha.42",
+    "systemjs": "0.19.2"
+  },
+  "devDependencies": {
+    "live-server": "^0.8.1",
+    "typescript": "^1.6.2"
+  }
+}
