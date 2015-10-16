@@ -12,7 +12,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var angular2_1 = require('angular2/angular2');
-var TaskService_1 = require('services/TaskService');
+//import {TaskService} from 'app/services/TaskService';
+//import {TaskModel} from 'app/models/TaskModel';
+var TaskService = (function () {
+    function TaskService() {
+    }
+    TaskService.prototype.getTasks = function () {
+        this.tasks = ["A", "B"];
+        return this.tasks;
+    };
+    return TaskService;
+})();
+var TaskModel = (function () {
+    function TaskModel(user, title) {
+        this.user = user;
+        this.title = title;
+    }
+    return TaskModel;
+})();
 var AppComponent = (function () {
     function AppComponent(taskService) {
         this.tasks = taskService.getTasks();
@@ -20,14 +37,15 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         angular2_1.Component({
             selector: 'my-app',
+            appInjector: [TaskService]
+        }),
+        angular2_1.View({
             templateUrl: 'app/views/tasksList.html',
-            directives: [angular2_1.NgFor],
-            appInjector: [TaskService_1.TaskService]
+            directives: [angular2_1.NgFor]
         }), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof TaskService_1.TaskService !== 'undefined' && TaskService_1.TaskService) === 'function' && _a) || Object])
+        __metadata('design:paramtypes', [TaskService])
     ], AppComponent);
     return AppComponent;
-    var _a;
 })();
 angular2_1.bootstrap(AppComponent);
 //# sourceMappingURL=app.js.map

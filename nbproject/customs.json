@@ -1,8 +1,6 @@
 {
     "elements": {},
     "attributes": {
-        "*ng-for": {
-            "context": "tr"
-        }
+        "*ng-for": {}
     }
 }

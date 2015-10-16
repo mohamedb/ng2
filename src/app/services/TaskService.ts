@@ -1,5 +1,5 @@
 /// <reference path="../models/TaskModel.ts"/>
-import {TaskModel} from 'models/TaskModel'
+import {TaskModel} from 'app/models/TaskModel'
 export class TaskService{
   tasks:Array<TaskModel>;
   constructor(){

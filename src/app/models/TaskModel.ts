@@ -5,6 +5,4 @@ export class TaskModel{
 		this.user=user;
 		this.title=title;
 	}
-	
-	
 }
