@@ -12,17 +12,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var angular2_1 = require('angular2/angular2');
-//import {TaskService} from 'app/services/TaskService';
+//import {TaskService} from './services/TaskService';
 //import {TaskModel} from 'app/models/TaskModel';
-var TaskService = (function () {
-    function TaskService() {
-    }
-    TaskService.prototype.getTasks = function () {
-        this.tasks = ["A", "B"];
-        return this.tasks;
-    };
-    return TaskService;
-})();
 var TaskModel = (function () {
     function TaskModel(user, title) {
         this.user = user;
@@ -30,14 +21,23 @@ var TaskModel = (function () {
     }
     return TaskModel;
 })();
+var TaskService = (function () {
+    function TaskService() {
+    }
+    TaskService.prototype.getTasks = function () {
+        this.tasks = [new TaskModel("MED", "API DOC"), new TaskModel("MIA", "PPT PRES")];
+        return this.tasks;
+    };
+    return TaskService;
+})();
 var AppComponent = (function () {
-    function AppComponent(taskService) {
-        this.tasks = taskService.getTasks();
+    function AppComponent(taskS) {
+        this.tasks = taskS.getTasks();
     }
     AppComponent = __decorate([
         angular2_1.Component({
             selector: 'my-app',
-            appInjector: [TaskService]
+            providers: [TaskService]
         }),
         angular2_1.View({
             templateUrl: 'app/views/tasksList.html',

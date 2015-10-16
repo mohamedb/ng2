@@ -2,16 +2,9 @@
 /// <reference path="models/TaskModel.ts"/>
 
 import {Component, View, bootstrap, NgFor} from 'angular2/angular2';
-//import {TaskService} from 'app/services/TaskService';
+//import {TaskService} from './services/TaskService';
 //import {TaskModel} from 'app/models/TaskModel';
 
-class TaskService {
-    tasks: Array<any>;
-    getTasks(): Array<TaskModel> {
-        this.tasks = ["A", "B"]
-        return this.tasks;
-    }
-}
 
 class TaskModel {
     user: string;
@@ -21,11 +14,18 @@ class TaskModel {
         this.title = title;
     }
 }
+class TaskService {
+    tasks: Array<any>;
+    getTasks(): Array<TaskModel> {
+        this.tasks = [new TaskModel("MED","API DOC"), new TaskModel("MIA","PPT PRES")];
+        return this.tasks;
+    }
+}
 
 
 @Component({
     selector: 'my-app',
-    appInjector: [TaskService]
+    providers: [TaskService]
 })
 @View({
     templateUrl: 'app/views/tasksList.html',
@@ -33,8 +33,8 @@ class TaskModel {
 })
 class AppComponent {
     tasks: Array<any>;
-    constructor(taskService: TaskService) {
-        this.tasks = taskService.getTasks();
+    constructor(taskS: TaskService) {
+        this.tasks = taskS.getTasks();
     }
 }
 
