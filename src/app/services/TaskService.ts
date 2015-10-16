@@ -1,11 +1,9 @@
 /// <reference path="../models/TaskModel.ts"/>
-import {TaskModel} from 'app/models/TaskModel'
-export class TaskService{
-  tasks:Array<TaskModel>;
-  constructor(){
-     this.tasks=[new TaskModel("Med","Update server"), new TaskModel("SLH","Translate Msg")]
-   }
-   getTasks(): Array<TaskModel>{
-     return this.tasks;
-   }
+import {TaskModel} from '../models/TaskModel'
+export class TaskService {
+    tasks: Array<any>;
+    getTasks(): Array<TaskModel> {
+        this.tasks = [new TaskModel("MED","API DOC"), new TaskModel("MIA","PPT PRES")];
+        return this.tasks;
+    }
 }
