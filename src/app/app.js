@@ -1,3 +1,5 @@
+/// <reference path="services/TaskService.ts"/>
+/// <reference path="models/TaskModel.ts"/>
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
     switch (arguments.length) {
@@ -10,17 +12,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var angular2_1 = require('angular2/angular2');
+var TaskService_1 = require('services/TaskService');
 var AppComponent = (function () {
-    function AppComponent() {
+    function AppComponent(taskService) {
+        this.tasks = taskService.getTasks();
     }
     AppComponent = __decorate([
         angular2_1.Component({
             selector: 'my-app',
-            template: '<h1>Ceci est une version très expérimental!</h1>'
+            templateUrl: 'app/views/tasksList.html',
+            directives: [angular2_1.NgFor],
+            appInjector: [TaskService_1.TaskService]
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [(typeof (_a = typeof TaskService_1.TaskService !== 'undefined' && TaskService_1.TaskService) === 'function' && _a) || Object])
     ], AppComponent);
     return AppComponent;
+    var _a;
 })();
 angular2_1.bootstrap(AppComponent);
 //# sourceMappingURL=app.js.map
