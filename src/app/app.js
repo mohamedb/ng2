@@ -17,10 +17,10 @@ var TaskService_1 = require('./services/TaskService');
 var peopleService_1 = require('./services/peopleService');
 var TaskInput_1 = require('./directives/TaskInput');
 var AppComponent = (function () {
-    function AppComponent(taskS, peopleService) {
-        var _this = this;
+    // people: Array<any>;
+    function AppComponent(taskS /*, peopleService: PeopleService*/) {
         this.tasks = taskS.getTasks();
-        peopleService.getPeople().subscribe(function (people) { return _this.people = people; });
+        // peopleService.getPeople().subscribe(people => this.people = people);
     }
     AppComponent = __decorate([
         angular2_1.Component({
@@ -31,7 +31,7 @@ var AppComponent = (function () {
             templateUrl: 'app/views/tasksList.html',
             directives: [angular2_1.NgFor, TaskInput_1.TaskInput]
         }), 
-        __metadata('design:paramtypes', [TaskService_1.TaskService, peopleService_1.PeopleService])
+        __metadata('design:paramtypes', [TaskService_1.TaskService])
     ], AppComponent);
     return AppComponent;
 })();

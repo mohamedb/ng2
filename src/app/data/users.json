@@ -1,0 +1,30 @@
+[
+    {
+        "id": 1,
+        "username": "MED",
+        "name": "MOHAMED",
+        "email": "med@med.com",
+        "roles": ["admin", "manager", "user"]
+    },
+    {
+        "id": 2,
+        "username": "nojiko",
+        "name": "Nojiko",
+        "email": "nojiko@xx.com",
+        "roles": ["manager", "user"]
+    }, 
+    {
+        "id": 3,
+        "username": "doll",
+        "name": "Doll",
+        "email": "dollar@doll.com",
+        "roles": ["assistant", "user"]
+    },
+    {
+        "id": 4,
+        "username": "nelly",
+        "name": "Nelly",
+        "email": "queen@of.sea",
+        "roles": ["CEO", "manager", "user"]
+    }
+]

@@ -20,11 +20,11 @@ import {TaskInput} from './directives/TaskInput';
 })
 class AppComponent {
     tasks: Array<any>;
-    people: Array<any>;
+   // people: Array<any>;
 
-    constructor(taskS: TaskService, peopleService: PeopleService) {
+    constructor(taskS: TaskService/*, peopleService: PeopleService*/) {
         this.tasks = taskS.getTasks();
-        peopleService.getPeople().subscribe(people => this.people = people);
+       // peopleService.getPeople().subscribe(people => this.people = people);
     }
 }
 

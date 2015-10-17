@@ -1,0 +1,39 @@
+[
+    {
+        "id": 1,
+        "title": "Doc API",
+        "dateStart": "12-10-2015 17:10",
+        "remindAt": "13-10-2015 08:10",
+        "priority": "low",
+        "description": "A simple task to do while playing games !",
+        "user": {
+            "id":1,
+            "username": "MED",
+            "name": "MOHAMED",
+            "email": "med@med.com",
+            "roles": ["admin", "manager", "user"]
+        },
+        "assignedTo": {
+            "id":2,
+            "username": "salah",
+            "name": "Nojiko",
+            "email": "nojiko@salah.com",
+            "username": "nojiko",
+            "roles": ["admin", "manager", "user"]
+        },
+        "comments": [
+            {
+                "id":1,
+                "authorId":2,
+                "body":"Ok, no probleme",
+                "title":"ok"
+            },
+            {
+                "id":2,
+                "authorId":1,
+                "body":"Thank you so much",
+                "title":"tnx"
+            }
+        ]
+    }
+]

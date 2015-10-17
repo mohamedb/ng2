@@ -14,7 +14,8 @@ var angular2_1 = require('angular2/angular2');
 var http_1 = require('angular2/http');
 var PeopleService = (function () {
     function PeopleService(http) {
-        this.people = http.get('http://jsonplaceholder.typicode.com/users').map(function (res) { return res.json(); });
+        this.dataUrl = 'app/data/users.json';
+        this.people = http.get(this.dataUrl).map(function (res) { return res.json(); });
     }
     PeopleService.prototype.getPeople = function () {
         return this.people;
