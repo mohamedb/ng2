@@ -14,18 +14,25 @@ var peopleService_1 = require('../services/peopleService');
 var TaskInput = (function () {
     //people: Array<any>;
     function TaskInput(peopleService) {
+        this.everySecond = new angular2_1.EventEmitter();
         this.email = "t";
+        // setInterval(() => this.everySecond.next("event"), 1000);
         // peopleService.getPeople().subscribe(people => this.people = people);
     }
     TaskInput.prototype.saveTask = function ($event, user, task) {
+        var resp = [user.value, task.value, "ko"];
+        console.log("user =>: " + user.value);
+        this.everySecond.next(resp);
         $event.preventDefault();
-        console.log("User: " + user.value + "\n taskTitle: " + task.value);
-        this.people.push({ name: user.value });
     };
     __decorate([
         angular2_1.Input(), 
         __metadata('design:type', Array)
     ], TaskInput.prototype, "people");
+    __decorate([
+        angular2_1.Output(), 
+        __metadata('design:type', Object)
+    ], TaskInput.prototype, "everySecond");
     TaskInput = __decorate([
         angular2_1.Component({
             selector: 'add-task',

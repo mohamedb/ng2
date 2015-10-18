@@ -1,4 +1,4 @@
-import {Component, View, NgFor, Input, NgModel, FORM_DIRECTIVES} from 'angular2/angular2';
+import {Component, View, NgFor, Input,Output,EventEmitter, NgModel, FORM_DIRECTIVES} from 'angular2/angular2';
 import {PeopleService} from '../services/peopleService';
 @Component({
 	selector: 'add-task',
@@ -29,17 +29,18 @@ import {PeopleService} from '../services/peopleService';
 	directives: [NgFor,NgModel, FORM_DIRECTIVES]
 })
 export class TaskInput {
-	@Input() people: Array<any>;
+	@Input() people: Array<any>;	 
+	@Output() everySecond = new EventEmitter();
 	email: string = "t";
 	//people: Array<any>;
 	
 	constructor(peopleService:PeopleService){
+		// setInterval(() => this.everySecond.next("event"), 1000);
 		 // peopleService.getPeople().subscribe(people => this.people = people);
 	}
     saveTask($event: any, user: any, task: any) {
-		$event.preventDefault();
-		console.log("User: " + user.value + "\n taskTitle: " + task.value);
-		this.people.push({name:user.value});
-
-	}
+		var resp=[user.value,task.value,"ko"];
+		console.log("user =>: "+user.value);		
+		this.everySecond.next(resp); 
+		$event.preventDefault();  
 }

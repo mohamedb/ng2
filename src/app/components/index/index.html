@@ -1,6 +1,6 @@
 
       
-    <add-task [people]= "people" class="col-md-6 well"> </add-task>
+    <add-task [people]= "people" class="col-md-6 well"  (every-second)="everySecond($event)" > </add-task>
     
     <div   class="col-md-5 col-md-offset-1 well">
         <button class="btn btn-info">Update!</button>

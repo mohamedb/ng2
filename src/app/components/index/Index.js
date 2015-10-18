@@ -22,6 +22,14 @@ var Index = (function () {
         peopleService.getPeople().subscribe(function (people) { return _this.people = people; });
         this.location = location;
     }
+    Index.prototype.everySecond = function (obj) {
+        console.log('called! .next=> ' + JSON.stringify(obj));
+    };
+    Index.prototype.saveTask = function ($event, user, task) {
+        $event.preventDefault();
+        console.log("User: " + user.value + "\n taskTitle: " + task.value);
+        this.people.push({ name: user.value });
+    };
     Index = __decorate([
         angular2_1.Component({
             selector: 'my-app',
