@@ -1,0 +1,11 @@
+<div>
+        <div class="list-group col-md-3">
+			<a [class.active]="getLinkStyle('/')" [router-link]="['/Index']" class="list-group-item">Index</a>
+            <a [class.active]="getLinkStyle('/users')" [router-link]="['/Users']" class="list-group-item">Users</a>
+           
+       </div>
+
+        <div class="col-md-9">
+            <router-outlet></router-outlet>
+        </div>
+    </div>

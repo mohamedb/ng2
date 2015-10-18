@@ -1,23 +1,28 @@
 <html>
-    <head>
-        <title>Getting Started</title>
-        <script src="../node_modules/systemjs/dist/system.src.js"></script>
-        <script src="../node_modules/angular2/bundles/angular2.dev.js"></script>
-        <script src="../node_modules/angular2/bundles/http.dev.js"></script>
-        <!--    
+
+<head>
+    <title>Getting Started</title>
+    <script src="../node_modules/systemjs/dist/system.src.js"></script>
+    <script src="../node_modules/angular2/bundles/angular2.js"></script>
+    <script src="../node_modules/angular2/bundles/http.dev.js"></script>
+    <script src="../node_modules/angular2/bundles/router.dev.js"></script>
+    <!--    
         <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css" type="text/css" />
         <link rel="stylesheet" href="../bower_components/bootstrap-material-design/dist/css/material.css" type="text/css" />
         <link rel="stylesheet" href="../bower_components/bootstrap-material-design/dist/css/roboto.css" type="text/css" />
         -->
-        <script>
-            System.config({
+    <script>
+        System.config({
                 packages: {'app': {defaultExtension: 'js'}}
             });
             System.import('app/app');
-        </script>
-    </head>
-    <body>
-     <my-app>Loading...</my-app>
-     
-    </body>
+    </script>
+</head>
+
+<body>
+
+    <my-app> Loading...</my-app>
+
+</body>
+
 </html>

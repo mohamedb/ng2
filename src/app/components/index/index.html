@@ -1,0 +1,23 @@
+<div class="col-md-4">
+    Add task form!:
+    <br>
+    <add-task> </add-task>
+    <br>
+    <div class="row well well-sm">
+        <button class="btn btn-info">Update!</button>
+        <table class="table table-bordered table-condensed">
+            <thead>
+                <th> User </th>
+                <th>Task title</th>
+            </thead>
+            <tbody>
+                <tr *ng-for="#task of tasks">
+                    <td>{{task.user}}</td>
+                    <td>{{task.title}}</td>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+
+</div>
