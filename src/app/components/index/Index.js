@@ -17,8 +17,9 @@ var TaskService_1 = require('../../services/TaskService');
 var peopleService_1 = require('../../services/peopleService');
 var TaskInput_1 = require('../../directives/TaskInput');
 var Index = (function () {
-    function Index(taskS, location) {
-        this.tasks = taskS.getTasks();
+    function Index(taskS, location, peopleService) {
+        var _this = this;
+        peopleService.getPeople().subscribe(function (people) { return _this.people = people; });
         this.location = location;
     }
     Index = __decorate([
@@ -30,7 +31,7 @@ var Index = (function () {
             templateUrl: 'app/components/index/index.html',
             directives: [angular2_1.NgFor, TaskInput_1.TaskInput, router_1.ROUTER_DIRECTIVES]
         }), 
-        __metadata('design:paramtypes', [TaskService_1.TaskService, router_1.Location])
+        __metadata('design:paramtypes', [TaskService_1.TaskService, router_1.Location, peopleService_1.PeopleService])
     ], Index);
     return Index;
 })();

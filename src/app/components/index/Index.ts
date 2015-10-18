@@ -22,11 +22,12 @@ import {TaskInput} from '../../directives/TaskInput';
  
 export class Index {  
     location: Location;   
-    tasks: Array<any>;
+    people: Array<any>;
 
-    constructor(taskS: TaskService, location: Location) {
-        this.tasks = taskS.getTasks();       
+    constructor(taskS: TaskService, location: Location,peopleService:PeopleService) {
+        peopleService.getPeople().subscribe(people => this.people = people);
         this.location = location;
     }
+     
 }
  

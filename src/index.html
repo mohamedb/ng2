@@ -1,28 +1,40 @@
 <html>
 
-<head>
-    <title>Getting Started</title>
-    <script src="../node_modules/systemjs/dist/system.src.js"></script>
-    <script src="../node_modules/angular2/bundles/angular2.js"></script>
-    <script src="../node_modules/angular2/bundles/http.dev.js"></script>
-    <script src="../node_modules/angular2/bundles/router.dev.js"></script>
-    <!--    
+    <head>
+        <title>Getting Started</title>
+        <!-- Bootstrap only grid-system, tooltips, dropdowns and modals -->
+        <script src="../bower_components/jquery/dist/jquery.js"></script>
+        <!--    <link rel="stylesheet" href="../custom_bootstrap/css/bootstrap.css" type="text/css" />
+            <script src="../custom_bootstrap/js/bootstrap.js"></script>-->
+        
+
+        <script src="../node_modules/systemjs/dist/system.src.js"></script>
+        <script src="../node_modules/angular2/bundles/angular2.js"></script>
+        <script src="../node_modules/angular2/bundles/http.dev.js"></script>
+        <script src="../node_modules/angular2/bundles/router.dev.js"></script>
+
         <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css" type="text/css" />
         <link rel="stylesheet" href="../bower_components/bootstrap-material-design/dist/css/material.css" type="text/css" />
+        <script src="../bower_components/bootstrap-material-design/dist/js/material.js"></script>
         <link rel="stylesheet" href="../bower_components/bootstrap-material-design/dist/css/roboto.css" type="text/css" />
-        -->
-    <script>
-        System.config({
+        <link rel="stylesheet" href="./main.css" type="text/css" />
+        <script>
+
+            System.config({
                 packages: {'app': {defaultExtension: 'js'}}
             });
             System.import('app/app');
-    </script>
-</head>
 
-<body>
+        </script>
+    </head>
+
+    <body>
 
     <my-app> Loading...</my-app>
-
+    <script>
+        $.material.init();
+         
+    </script>
 </body>
 
 </html>

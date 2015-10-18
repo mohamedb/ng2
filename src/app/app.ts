@@ -9,7 +9,7 @@ import {PeopleService} from './services/peopleService';
 import {TaskModel} from './models/TaskModel';
 import {TaskInput} from './directives/TaskInput';
 import {Users} from './components/users/Users';
-import {Index} from './components/index/Index';
+import {Index} from './components/index/Index'; 
 
 @Component({
     selector: 'my-app',

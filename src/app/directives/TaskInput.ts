@@ -7,11 +7,14 @@ import {PeopleService} from '../services/peopleService';
 })
 @View({
 	template: `
+	<b>Add task </b> <br>
 	<form>
-		<input type="text" #user /> {{user.value}} <br>
-		<input type="text" #task /> {{task.value}} <br>
-		<input [ng-model]="email" (ng-model-change)="email=$event"></input> {{email}}
-		<button (click)="saveTask($event,user,task)"> Save </button>		
+	    <div class="form-group">
+		User: <input type="text" #user class="form-control" /> {{user.value}} <br>
+		Task title: <input type="text" #task class="form-control" /> {{task.value}} <br>
+		<!-- <input [ng-model]="email" (ng-model-change)="email=$event"></input> {{email}} -->
+		<button (click)="saveTask($event,user,task)"> Save </button>	
+		</div>	
 	</form>
 	<br>
 	<div>
@@ -26,10 +29,12 @@ import {PeopleService} from '../services/peopleService';
 	directives: [NgFor,NgModel, FORM_DIRECTIVES]
 })
 export class TaskInput {
+	@Input() people: Array<any>;
 	email: string = "t";
-	people: Array<any>;
+	//people: Array<any>;
+	
 	constructor(peopleService:PeopleService){
-		  peopleService.getPeople().subscribe(people => this.people = people);
+		 // peopleService.getPeople().subscribe(people => this.people = people);
 	}
     saveTask($event: any, user: any, task: any) {
 		$event.preventDefault();

@@ -3,10 +3,11 @@
         "id": 1,
         "title": "Doc API",
         "dateStart": "12-10-2015 17:10",
+        "dateEnd"  : "16-10-2015 10:10",
         "remindAt": "13-10-2015 08:10",
         "priority": "low",
         "description": "A simple task to do while playing games !",
-        "user": {
+        "author": {
             "id":1,
             "username": "MED",
             "name": "MOHAMED",
