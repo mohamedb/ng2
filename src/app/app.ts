@@ -10,6 +10,7 @@ import {TaskModel} from './models/TaskModel';
 import {TaskInput} from './directives/TaskInput';
 import {Users} from './components/users/Users';
 import {Index} from './components/index/Index'; 
+import {LeftMenuDirective} from './directives/LeftMenuDirective';
 
 @Component({
     selector: 'my-app',
@@ -17,7 +18,7 @@ import {Index} from './components/index/Index';
 })
 @View({
     templateUrl: 'app/views/firstPage.html',
-    directives: [NgFor, TaskInput,ROUTER_DIRECTIVES]
+    directives: [NgFor, TaskInput,ROUTER_DIRECTIVES,LeftMenuDirective]
 })
 @RouteConfig([
    new Route({ path: '/', component: Index, as: 'Index' }),

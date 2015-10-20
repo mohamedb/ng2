@@ -7,31 +7,27 @@ import {PeopleService} from '../services/peopleService';
 })
 @View({
 	template: `
-	<b>Add task </b> <br>
-	<form>
-	    <div class="form-group">
-		User: <input type="text" #user class="form-control" /> {{user.value}} <br>
-		Task title: <input type="text" #task class="form-control" /> {{task.value}} <br>
-		<!-- <input [ng-model]="email" (ng-model-change)="email=$event"></input> {{email}} -->
-		<button (click)="saveTask($event,user,task)"> Save </button>	
-		</div>	
-	</form>
-	<br>
-	<div>
-    <h6>People: </h6>
-    <ul>
-        <li *ng-for="#user of people">
-            {{user.name}}
-        </li>
-    </ul>
-</div>
+	<div class="col-md-6 well" >
+	 <b>Add task </b> <br>
+		<form>
+			<div class="form-group">		
+			Tâche : <input type="text" #task class="form-control" />   <br>
+			Assignée à: <input type="text" #user class="form-control" /><br>
+			<!-- <input [ng-model]="email" (ng-model-change)="email=$event"></input> {{email}} -->
+			<b style="color:red"> {{erreurInput}} </b><br>
+			<button (click)="saveTask($event,user,task)"> Ajouter </button>	
+			</div>	
+		</form>
+	</div>
 	`,
 	directives: [NgFor,NgModel, FORM_DIRECTIVES]
 })
 export class TaskInput {
 	@Input() people: Array<any>;	 
-	@Output() everySecond = new EventEmitter();
+	@Output() taskAdded = new EventEmitter();
 	email: string = "t";
+	 
+	erreurInput:string="";
 	//people: Array<any>;
 	
 	constructor(peopleService:PeopleService){
@@ -39,8 +35,15 @@ export class TaskInput {
 		 // peopleService.getPeople().subscribe(people => this.people = people);
 	}
     saveTask($event: any, user: any, task: any) {
-		var resp=[user.value,task.value,"ko"];
+		this.erreurInput="";
+		//var resp=[user.value,task.value,"ko"];
+		if(user.value.length<2 || task.value.length <2){
+			this.erreurInput= "Merci de vérifier le formulaire";
+			$event.preventDefault();  
+			return 0;
+		}
 		console.log("user =>: "+user.value);		
-		this.everySecond.next(resp); 
+		this.taskAdded.next({name:user.value,task:task.value}); 
 		$event.preventDefault();  
+	}
 }

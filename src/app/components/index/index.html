@@ -1,20 +1,17 @@
+<add-task [people]="people" (task-added)="pushTask($event)"> </add-task>
+<div class="col-md-5 col-md-offset-1 well">
+     
+    <table class="table table-bordered">
+        <thead>
+            <th> Tâche </th>
+            <th> Réalisateur </th>
+        </thead>
+        <tbody>
+            <tr *ng-for="#taskEntity of people">
+                <td>{{taskEntity.task}}</td>
+                <td>{{taskEntity.name}}</td>              
+            </tr>
+        </tbody>
 
-      
-    <add-task [people]= "people" class="col-md-6 well"  (every-second)="everySecond($event)" > </add-task>
-    
-    <div   class="col-md-5 col-md-offset-1 well">
-        <button class="btn btn-info">Update!</button>
-        <table class="table table-bordered table-condensed">
-            <thead>
-                <th> User </th>
-                
-            </thead>
-            <tbody>
-                <tr *ng-for="#task of people">
-                    <td>{{task.name}}</td>
-                    
-                </tr>
-            </tbody>
-
-        </table>
-    </div>
+    </table>
+</div>

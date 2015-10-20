@@ -18,12 +18,14 @@ var peopleService_1 = require('../../services/peopleService');
 var TaskInput_1 = require('../../directives/TaskInput');
 var Index = (function () {
     function Index(taskS, location, peopleService) {
-        var _this = this;
-        peopleService.getPeople().subscribe(function (people) { return _this.people = people; });
+        this.people = [];
+        //peopleService.getPeople().subscribe(people => this.people = people);
+        this.people.push({ task: "Préparer la Doc", name: "MED" });
         this.location = location;
     }
-    Index.prototype.everySecond = function (obj) {
+    Index.prototype.pushTask = function (obj) {
         console.log('called! .next=> ' + JSON.stringify(obj));
+        this.people.push({ name: obj.name, task: obj.task });
     };
     Index.prototype.saveTask = function ($event, user, task) {
         $event.preventDefault();
@@ -32,7 +34,7 @@ var Index = (function () {
     };
     Index = __decorate([
         angular2_1.Component({
-            selector: 'my-app',
+            selector: 'index-page',
             providers: [TaskService_1.TaskService, peopleService_1.PeopleService, router_1.RouterLink, router_1.Location]
         }),
         angular2_1.View({

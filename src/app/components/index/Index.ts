@@ -11,8 +11,9 @@ import {TaskInput} from '../../directives/TaskInput';
 
 
 
+
 @Component({
-    selector: 'my-app',
+    selector: 'index-page',
     providers: [TaskService, PeopleService, RouterLink, Location]
 })
 @View({
@@ -22,20 +23,21 @@ import {TaskInput} from '../../directives/TaskInput';
 
 export class Index {
     location: Location;
-    people: Array<any>;
+    people: Array<any>=[];
 
     constructor(taskS: TaskService, location: Location, peopleService: PeopleService) {
-        peopleService.getPeople().subscribe(people => this.people = people);
+        //peopleService.getPeople().subscribe(people => this.people = people);
+        this.people.push({task:"Préparer la Doc",name:"MED"});
         this.location = location;
     }
-    everySecond(obj:any) {
+    pushTask(obj:any) {
         console.log('called! .next=> '+JSON.stringify(obj));
+        this.people.push({ name: obj.name, task: obj.task });
     }
     saveTask($event: any, user: any, task: any) {
         $event.preventDefault();
         console.log("User: " + user.value + "\n taskTitle: " + task.value);
         this.people.push({ name: user.value });
-
     }
 }
  

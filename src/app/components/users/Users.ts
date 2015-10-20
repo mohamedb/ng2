@@ -17,7 +17,7 @@ import {TaskInput} from '../../directives/TaskInput';
 })
 @View({
     templateUrl: 'app/components/users/users.html',
-    directives: [NgFor, TaskInput,ROUTER_DIRECTIVES]
+    directives: [NgFor, TaskInput, ROUTER_DIRECTIVES]
 })
  
 export class Users {  

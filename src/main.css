@@ -2,5 +2,29 @@
 	font-weight: 600;
 	color: black !important;
 }
+body {
+  padding-top: 60px;
+  background-color: #F1F0F0;
+}
+/*@media (max-width: 979px) {
+  body {
+    padding-top: 0px;
+  }
+}*/
  
 
+.navbar-inverse {
+    background-color: #FFF;
+    border-color: #080808;
+    color: gold;
+}
+.well {
+    min-height: 20px;
+    padding: 19px;
+    margin-bottom: 20px;
+    background-color: white;
+    border: 1px solid #03A9F4;
+    border-radius: 0px; 
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+    box-shadow: inset 0px 0px 1px #2196F3;
+}

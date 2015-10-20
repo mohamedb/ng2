@@ -19,6 +19,7 @@ var peopleService_1 = require('./services/peopleService');
 var TaskInput_1 = require('./directives/TaskInput');
 var Users_1 = require('./components/users/Users');
 var Index_1 = require('./components/index/Index');
+var LeftMenuDirective_1 = require('./directives/LeftMenuDirective');
 var AppComponent = (function () {
     function AppComponent(taskS, location) {
         this.tasks = taskS.getTasks();
@@ -34,7 +35,7 @@ var AppComponent = (function () {
         }),
         angular2_1.View({
             templateUrl: 'app/views/firstPage.html',
-            directives: [angular2_1.NgFor, TaskInput_1.TaskInput, router_1.ROUTER_DIRECTIVES]
+            directives: [angular2_1.NgFor, TaskInput_1.TaskInput, router_1.ROUTER_DIRECTIVES, LeftMenuDirective_1.LeftMenuDirective]
         }),
         router_1.RouteConfig([
             new router_1.Route({ path: '/', component: Index_1.Index, as: 'Index' }),

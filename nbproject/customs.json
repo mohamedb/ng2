@@ -1,9 +1,11 @@
 {
     "elements": {
-        "router-outlet": {}
+        "router-outlet": {},
+        "my-app": {}
     },
     "attributes": {
         "*ng-for": {},
+        "aria-expanded": {},
         "[class.active]": {},
         "[router-link]": {}
     }

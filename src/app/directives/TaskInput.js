@@ -14,15 +14,22 @@ var peopleService_1 = require('../services/peopleService');
 var TaskInput = (function () {
     //people: Array<any>;
     function TaskInput(peopleService) {
-        this.everySecond = new angular2_1.EventEmitter();
+        this.taskAdded = new angular2_1.EventEmitter();
         this.email = "t";
+        this.erreurInput = "";
         // setInterval(() => this.everySecond.next("event"), 1000);
         // peopleService.getPeople().subscribe(people => this.people = people);
     }
     TaskInput.prototype.saveTask = function ($event, user, task) {
-        var resp = [user.value, task.value, "ko"];
+        this.erreurInput = "";
+        //var resp=[user.value,task.value,"ko"];
+        if (user.value.length < 2 || task.value.length < 2) {
+            this.erreurInput = "Merci de vérifier le formulaire";
+            $event.preventDefault();
+            return 0;
+        }
         console.log("user =>: " + user.value);
-        this.everySecond.next(resp);
+        this.taskAdded.next({ name: user.value, task: task.value });
         $event.preventDefault();
     };
     __decorate([
@@ -32,14 +39,14 @@ var TaskInput = (function () {
     __decorate([
         angular2_1.Output(), 
         __metadata('design:type', Object)
-    ], TaskInput.prototype, "everySecond");
+    ], TaskInput.prototype, "taskAdded");
     TaskInput = __decorate([
         angular2_1.Component({
             selector: 'add-task',
             providers: [peopleService_1.PeopleService]
         }),
         angular2_1.View({
-            template: "\n\t<b>Add task </b> <br>\n\t<form>\n\t    <div class=\"form-group\">\n\t\tUser: <input type=\"text\" #user class=\"form-control\" /> {{user.value}} <br>\n\t\tTask title: <input type=\"text\" #task class=\"form-control\" /> {{task.value}} <br>\n\t\t<!-- <input [ng-model]=\"email\" (ng-model-change)=\"email=$event\"></input> {{email}} -->\n\t\t<button (click)=\"saveTask($event,user,task)\"> Save </button>\t\n\t\t</div>\t\n\t</form>\n\t<br>\n\t<div>\n    <h6>People: </h6>\n    <ul>\n        <li *ng-for=\"#user of people\">\n            {{user.name}}\n        </li>\n    </ul>\n</div>\n\t",
+            template: "\n\t<div class=\"col-md-6 well\" >\n\t <b>Add task </b> <br>\n\t\t<form>\n\t\t\t<div class=\"form-group\">\t\t\n\t\t\tT\u00E2che : <input type=\"text\" #task class=\"form-control\" />   <br>\n\t\t\tAssign\u00E9e \u00E0: <input type=\"text\" #user class=\"form-control\" /><br>\n\t\t\t<!-- <input [ng-model]=\"email\" (ng-model-change)=\"email=$event\"></input> {{email}} -->\n\t\t\t<b style=\"color:red\"> {{erreurInput}} </b><br>\n\t\t\t<button (click)=\"saveTask($event,user,task)\"> Ajouter </button>\t\n\t\t\t</div>\t\n\t\t</form>\n\t</div>\n\t",
             directives: [angular2_1.NgFor, angular2_1.NgModel, angular2_1.FORM_DIRECTIVES]
         }), 
         __metadata('design:paramtypes', [peopleService_1.PeopleService])
