@@ -11,8 +11,8 @@ import {UtilisateurService} from '../services/UtilisateurService';
 	 <b>Add task </b> <br>
 		<form>
 			<div class="form-group">		
-			Tâche : <input type="text" #task class="form-control" />   <br>
-			Assignée à: <input type="text" #user class="form-control" /><br>
+			Tâche : <input type="text" #task class="pull-right" />   <br>
+			Assignée à: <input type="text" #user class="pull-right" /><br>
 			<!-- <input [ng-model]="email" (ng-model-change)="email=$event"></input> {{email}} -->
 			<b style="color:red"> {{erreurInput}} </b><br>
 			<button (click)="saveTask($event,user,task)"> Ajouter </button>	
