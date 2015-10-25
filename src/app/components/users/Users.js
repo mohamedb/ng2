@@ -13,24 +13,32 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var angular2_1 = require('angular2/angular2');
 var router_1 = require('angular2/router');
-var TaskService_1 = require('../../services/TaskService');
-var peopleService_1 = require('../../services/peopleService');
-var TaskInput_1 = require('../../directives/TaskInput');
+var UtilisateurService_1 = require('../../services/UtilisateurService');
+var AjouterUtilisateurFormDirective_1 = require('../../directives/AjouterUtilisateurFormDirective');
 var Users = (function () {
-    function Users(taskS, location) {
-        this.tasks = taskS.getTasks();
-        this.location = location;
+    function Users(utilisateurService, location) {
+        var _this = this;
+        this.utilisateurAEditer = { name: "", email: "" };
+        this.edition = false;
+        utilisateurService.getUtilisateurs().subscribe(function (people) { return _this.utilisateurs = people; });
     }
+    Users.prototype.edit = function (utilisateur) {
+        this.edition = true;
+        this.utilisateurAEditer = utilisateur;
+    };
+    Users.prototype.fermerEdition = function () {
+        this.edition = false;
+    };
     Users = __decorate([
         angular2_1.Component({
             selector: 'my-app',
-            providers: [TaskService_1.TaskService, peopleService_1.PeopleService, router_1.RouterLink, router_1.Location]
+            providers: [UtilisateurService_1.UtilisateurService, router_1.RouterLink, router_1.Location]
         }),
         angular2_1.View({
             templateUrl: 'app/components/users/users.html',
-            directives: [angular2_1.NgFor, TaskInput_1.TaskInput, router_1.ROUTER_DIRECTIVES]
+            directives: [angular2_1.CORE_DIRECTIVES, router_1.ROUTER_DIRECTIVES, AjouterUtilisateurFormDirective_1.AjouterUtilisateurFormDirective]
         }), 
-        __metadata('design:paramtypes', [TaskService_1.TaskService, router_1.Location])
+        __metadata('design:paramtypes', [UtilisateurService_1.UtilisateurService, router_1.Location])
     ], Users);
     return Users;
 })();

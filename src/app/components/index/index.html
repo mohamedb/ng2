@@ -1,4 +1,5 @@
-<add-task [people]="people" (task-added)="pushTask($event)"> </add-task>
+<notification [notification-message]="notificationMessage" (init-message)="initMessageEventReceiver()"></notification>
+<add-task [people]="people" (task-added)="pushTaskEventReceiver($event)"> </add-task>
 <div class="col-md-5 col-md-offset-1 well">
      
     <table class="table table-bordered">
@@ -12,6 +13,5 @@
                 <td>{{taskEntity.name}}</td>              
             </tr>
         </tbody>
-
     </table>
 </div>

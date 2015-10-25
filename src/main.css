@@ -28,3 +28,50 @@ body {
     -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
     box-shadow: inset 0px 0px 1px #2196F3;
 }
+#notification {
+    position: absolute;
+    top: 15%;
+    left: 40%;
+    background-color: #FF9800;
+    color: black;
+    z-index: 999;
+    border: 1px solid #FF9800;
+    padding: 5px;
+    font-weight: 600;
+}
+#notification button{
+    margin-left: 20px;
+    border-radius: 20px;
+    background: white;
+    color: red;
+    font-weight: bold;
+}
+.modalDialog {
+	position: fixed;
+	font-family: Arial, Helvetica, sans-serif;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: rgba(0,0,0,0.8);
+	z-index: 99999;
+	opacity:0;
+	-webkit-transition: opacity 400ms ease-in;
+	-moz-transition: opacity 400ms ease-in;
+	transition: opacity 400ms ease-in;
+	pointer-events: none;
+}
+.showModal{
+	opacity:1;
+	pointer-events: auto;
+}
+
+.modalDialog > div {
+	width: 50%;
+	position: relative;
+	margin: 10% auto;
+	padding: 5px 20px 13px 20px;
+	background: #fff;
+ 
+}
+ 

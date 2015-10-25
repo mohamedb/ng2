@@ -1,10 +1,10 @@
 import {Component, View, NgFor, Input,Output,EventEmitter, NgModel, FORM_DIRECTIVES} from 'angular2/angular2';
-import {PeopleService} from '../services/peopleService';
+import {UtilisateurService} from '../services/UtilisateurService';
 @Component({
 	selector: 'add-task',
-	providers: [PeopleService]
+	providers: [UtilisateurService]
 
-})
+}) 
 @View({
 	template: `
 	<div class="col-md-6 well" >
@@ -22,7 +22,7 @@ import {PeopleService} from '../services/peopleService';
 	`,
 	directives: [NgFor,NgModel, FORM_DIRECTIVES]
 })
-export class TaskInput {
+export class AddTaskFormDirective {
 	@Input() people: Array<any>;	 
 	@Output() taskAdded = new EventEmitter();
 	email: string = "t";
@@ -30,9 +30,9 @@ export class TaskInput {
 	erreurInput:string="";
 	//people: Array<any>;
 	
-	constructor(peopleService:PeopleService){
+	constructor(peopleService:UtilisateurService){
 		// setInterval(() => this.everySecond.next("event"), 1000);
-		 // peopleService.getPeople().subscribe(people => this.people = people);
+		// peopleService.getPeople().subscribe(people => this.people = people);
 	}
     saveTask($event: any, user: any, task: any) {
 		this.erreurInput="";

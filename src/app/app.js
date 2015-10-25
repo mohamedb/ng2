@@ -15,8 +15,7 @@ var angular2_1 = require('angular2/angular2');
 var http_1 = require('angular2/http');
 var router_1 = require('angular2/router');
 var TaskService_1 = require('./services/TaskService');
-var peopleService_1 = require('./services/peopleService');
-var TaskInput_1 = require('./directives/TaskInput');
+var UtilisateurService_1 = require('./services/UtilisateurService');
 var Users_1 = require('./components/users/Users');
 var Index_1 = require('./components/index/Index');
 var LeftMenuDirective_1 = require('./directives/LeftMenuDirective');
@@ -31,11 +30,11 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         angular2_1.Component({
             selector: 'my-app',
-            providers: [TaskService_1.TaskService, peopleService_1.PeopleService, router_1.RouterLink, router_1.Location]
+            providers: [TaskService_1.TaskService, UtilisateurService_1.UtilisateurService, router_1.RouterLink, router_1.Location]
         }),
         angular2_1.View({
             templateUrl: 'app/views/firstPage.html',
-            directives: [angular2_1.NgFor, TaskInput_1.TaskInput, router_1.ROUTER_DIRECTIVES, LeftMenuDirective_1.LeftMenuDirective]
+            directives: [angular2_1.NgFor, router_1.ROUTER_DIRECTIVES, LeftMenuDirective_1.LeftMenuDirective]
         }),
         router_1.RouteConfig([
             new router_1.Route({ path: '/', component: Index_1.Index, as: 'Index' }),

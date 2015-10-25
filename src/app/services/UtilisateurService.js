@@ -12,19 +12,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 //a simple service
 var angular2_1 = require('angular2/angular2');
 var http_1 = require('angular2/http');
-var PeopleService = (function () {
-    function PeopleService(http) {
+var UtilisateurService = (function () {
+    function UtilisateurService(http) {
         this.dataUrl = 'app/data/users.json';
         this.utilisateurs = http.get(this.dataUrl).map(function (res) { return res.json(); });
     }
-    PeopleService.prototype.getUtilisateurs = function () {
+    UtilisateurService.prototype.getUtilisateurs = function () {
         return this.utilisateurs;
     };
-    PeopleService = __decorate([
+    UtilisateurService = __decorate([
         angular2_1.Injectable(), 
         __metadata('design:paramtypes', [http_1.Http])
-    ], PeopleService);
-    return PeopleService;
+    ], UtilisateurService);
+    return UtilisateurService;
 })();
-exports.PeopleService = PeopleService;
-//# sourceMappingURL=peopleService.js.map
+exports.UtilisateurService = UtilisateurService;
+//# sourceMappingURL=UtilisateurService.js.map

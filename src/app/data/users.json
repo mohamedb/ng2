@@ -4,7 +4,7 @@
         "username": "MED",
         "name": "MOHAMED",
         "email": "med@med.com",
-        "roles": ["admin", "manager", "user"]
+        "roles": ["admin", "manager", "user"] 
     },
     {
         "id": 2,

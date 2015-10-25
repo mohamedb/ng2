@@ -11,16 +11,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var angular2_1 = require('angular2/angular2');
 var UtilisateurService_1 = require('../services/UtilisateurService');
-var TaskInput = (function () {
+var AddTaskFormDirective = (function () {
     //people: Array<any>;
-    function TaskInput(peopleService) {
+    function AddTaskFormDirective(peopleService) {
         this.taskAdded = new angular2_1.EventEmitter();
         this.email = "t";
         this.erreurInput = "";
         // setInterval(() => this.everySecond.next("event"), 1000);
         // peopleService.getPeople().subscribe(people => this.people = people);
     }
-    TaskInput.prototype.saveTask = function ($event, user, task) {
+    AddTaskFormDirective.prototype.saveTask = function ($event, user, task) {
         this.erreurInput = "";
         //var resp=[user.value,task.value,"ko"];
         if (user.value.length < 2 || task.value.length < 2) {
@@ -35,12 +35,12 @@ var TaskInput = (function () {
     __decorate([
         angular2_1.Input(), 
         __metadata('design:type', Array)
-    ], TaskInput.prototype, "people");
+    ], AddTaskFormDirective.prototype, "people");
     __decorate([
         angular2_1.Output(), 
         __metadata('design:type', Object)
-    ], TaskInput.prototype, "taskAdded");
-    TaskInput = __decorate([
+    ], AddTaskFormDirective.prototype, "taskAdded");
+    AddTaskFormDirective = __decorate([
         angular2_1.Component({
             selector: 'add-task',
             providers: [UtilisateurService_1.UtilisateurService]
@@ -50,8 +50,8 @@ var TaskInput = (function () {
             directives: [angular2_1.NgFor, angular2_1.NgModel, angular2_1.FORM_DIRECTIVES]
         }), 
         __metadata('design:paramtypes', [UtilisateurService_1.UtilisateurService])
-    ], TaskInput);
-    return TaskInput;
+    ], AddTaskFormDirective);
+    return AddTaskFormDirective;
 })();
-exports.TaskInput = TaskInput;
-//# sourceMappingURL=TaskInput.js.map
+exports.AddTaskFormDirective = AddTaskFormDirective;
+//# sourceMappingURL=AddTaskFormDirective.js.map

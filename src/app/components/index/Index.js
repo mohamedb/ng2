@@ -1,5 +1,3 @@
-/// <reference path="../../services/TaskService.ts"/>
-/// <reference path="../../models/TaskModel.ts"/>
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
     switch (arguments.length) {
@@ -14,34 +12,38 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var angular2_1 = require('angular2/angular2');
 var router_1 = require('angular2/router');
 var TaskService_1 = require('../../services/TaskService');
-var peopleService_1 = require('../../services/peopleService');
-var TaskInput_1 = require('../../directives/TaskInput');
+var UtilisateurService_1 = require('../../services/UtilisateurService');
+var AddTaskFormDirective_1 = require('../../directives/AddTaskFormDirective');
+var NotificationDirective_1 = require('../../directives/NotificationDirective');
 var Index = (function () {
     function Index(taskS, location, peopleService) {
         this.people = [];
+        this.notificationMessage = "";
         //peopleService.getPeople().subscribe(people => this.people = people);
         this.people.push({ task: "Préparer la Doc", name: "MED" });
         this.location = location;
     }
-    Index.prototype.pushTask = function (obj) {
+    Index.prototype.initMessageEventReceiver = function () {
+        this.notificationMessage = "";
+    };
+    /**
+     * Distinguer les fonctions "Intercepter" les evenements provenant d'autres Compoenents
+     */
+    Index.prototype.pushTaskEventReceiver = function (obj) {
         console.log('called! .next=> ' + JSON.stringify(obj));
         this.people.push({ name: obj.name, task: obj.task });
-    };
-    Index.prototype.saveTask = function ($event, user, task) {
-        $event.preventDefault();
-        console.log("User: " + user.value + "\n taskTitle: " + task.value);
-        this.people.push({ name: user.value });
+        this.notificationMessage = "Ajout avec succès";
     };
     Index = __decorate([
         angular2_1.Component({
             selector: 'index-page',
-            providers: [TaskService_1.TaskService, peopleService_1.PeopleService, router_1.RouterLink, router_1.Location]
+            providers: [TaskService_1.TaskService, UtilisateurService_1.UtilisateurService, router_1.RouterLink, router_1.Location]
         }),
         angular2_1.View({
             templateUrl: 'app/components/index/index.html',
-            directives: [angular2_1.NgFor, TaskInput_1.TaskInput, router_1.ROUTER_DIRECTIVES]
+            directives: [angular2_1.CORE_DIRECTIVES, router_1.ROUTER_DIRECTIVES, AddTaskFormDirective_1.AddTaskFormDirective, NotificationDirective_1.NotificationDirective]
         }), 
-        __metadata('design:paramtypes', [TaskService_1.TaskService, router_1.Location, peopleService_1.PeopleService])
+        __metadata('design:paramtypes', [TaskService_1.TaskService, router_1.Location, UtilisateurService_1.UtilisateurService])
     ], Index);
     return Index;
 })();
