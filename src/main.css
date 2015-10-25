@@ -3,20 +3,19 @@
 	color: black !important;
 }
 body {
-  padding-top: 60px;
-  background-color: #F1F0F0;
+  padding-top: 2%;
+  background-color: #607D8B;
+  font-family:'Lato', sans-serif;
+  font-size: 13px;
 }
-/*@media (max-width: 979px) {
-  body {
-    padding-top: 0px;
-  }
-}*/
- 
-
-.navbar-inverse {
-    background-color: #FFF;
-    border-color: #080808;
-    color: gold;
+table{
+	width: 100%;
+}
+table,tr,td {
+    border: 1px solid #9E9E9E;    
+}
+td, th {
+    padding: 5px;
 }
 .well {
     min-height: 20px;

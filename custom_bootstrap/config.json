@@ -381,25 +381,9 @@
     "@hr-border": "@gray-lighter"
   },
   "css": [
-    "print.less",
     "grid.less",
-    "responsive-utilities.less",
-    "responsive-embed.less",
-    "wells.less",
-    "dropdowns.less",
-    "tooltip.less",
-    "popovers.less",
-    "modals.less"
+    "responsive-utilities.less"
   ],
-  "js": [
-    "dropdown.js",
-    "modal.js",
-    "tooltip.js",
-    "popover.js",
-    "affix.js",
-    "collapse.js",
-    "scrollspy.js",
-    "transition.js"
-  ],
-  "customizerUrl": "http://getbootstrap.com/customize/?id=b6de55f8255917d42465"
+  "js": [],
+  "customizerUrl": "http://getbootstrap.com/customize/?id=5e3098c92f04104065d2"
 }

@@ -1,29 +1,32 @@
 <html>
 
-    <head>
-        <title>SBA: Welcome</title>
-        <script src="../bower_components/jquery/dist/jquery.js"></script> 
-        <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css" type="text/css" />
-        <script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
-         
-        <link rel="stylesheet" href="../bower_components/bootstrap-material-design/dist/css/roboto.css" type="text/css" />
-        <link rel="stylesheet" href="./main.css" type="text/css" />
-        <script src="../node_modules/systemjs/dist/system.src.js"></script>
-        <script src="../node_modules/angular2/bundles/angular2.js"></script>
-        <script src="../node_modules/angular2/bundles/http.dev.js"></script>
-        <script src="../node_modules/angular2/bundles/router.dev.js"></script>
-        <script>
+<head>
+    <title>SBA: Welcome</title>
+    <script src="../bower_components/jquery/dist/jquery.js"></script>
+    <link rel="stylesheet" href="../custom_bootstrap/css/bootstrap.css" type="text/css" />
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
 
-            System.config({
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="./main.css" type="text/css" />
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
+    <script src="../node_modules/systemjs/dist/system.src.js"></script>
+    <script src="../node_modules/angular2/bundles/angular2.js"></script>
+    <script src="../node_modules/angular2/bundles/http.dev.js"></script>
+    <script src="../node_modules/angular2/bundles/router.dev.js"></script>
+    <script>
+        System.config({
                 packages: {'app': {defaultExtension: 'js'}}
             });
             System.import('app/app');
+    </script>
+</head>
 
-        </script>
-    </head>
+<body>
+    <my-app>
+        <h1 style="margin:30%;background:white"> Loading...</h1>
+    </my-app>
+</body>
 
-    <body><my-app> Loading...</my-app></body>
-    
 
 
 </html>
