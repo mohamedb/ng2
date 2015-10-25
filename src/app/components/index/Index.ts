@@ -14,7 +14,7 @@ import {NotificationDirective}              from '../../directives/NotificationD
 
 @Component({
     selector: 'index-page',
-    providers: [TaskService, UtilisateurService, RouterLink, Location]
+    providers: [TaskService, UtilisateurService, RouterLink]
 })
 @View({
     templateUrl: 'app/components/index/index.html',
@@ -22,14 +22,14 @@ import {NotificationDirective}              from '../../directives/NotificationD
 })
 
 export class Index {
-    location: Location;
+
     people: Array<any>=[];
     notificationMessage:string =""; 
+    ajout:boolean=false;
 
-    constructor(taskS: TaskService, location: Location, peopleService: UtilisateurService) {
+    constructor(taskS: TaskService, peopleService: UtilisateurService) {
         //peopleService.getPeople().subscribe(people => this.people = people);
-        this.people.push({task:"Préparer la Doc",name:"MED"});
-        this.location = location;
+        this.people.push({task:"Préparer la Doc",name:"MED"});    
     }
     initMessageEventReceiver(){
        this.notificationMessage="";
@@ -41,7 +41,14 @@ export class Index {
     pushTaskEventReceiver(obj:any) {
         console.log('called! .next=> '+JSON.stringify(obj));
         this.people.push({ name: obj.name, task: obj.task });
+        this.fermerAjout();
         this.notificationMessage="Ajout avec succès";
+    }
+    activerAjout(){
+        this.ajout=true;
+    }
+    fermerAjout(){
+        this.ajout=false;
     }
 }
  

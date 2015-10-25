@@ -7,7 +7,7 @@ import {UtilisateurService} from '../services/UtilisateurService';
 }) 
 @View({
 	template: `
-	<div class="col-md-6 well" >
+	<div class="col-md-12 well" >
 	 <b>Add task </b> <br>
 		<form>
 			<div class="form-group">		

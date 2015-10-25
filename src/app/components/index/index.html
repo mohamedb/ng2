@@ -1,7 +1,9 @@
 <notification [notification-message]="notificationMessage" (init-message)="initMessageEventReceiver()"></notification>
-<add-task [people]="people" (task-added)="pushTaskEventReceiver($event)"> </add-task>
-<div class="col-md-5 col-md-offset-1 well">
-     
+
+<button (click)='activerAjout()' class="btn">Nouvelle tâche</button>
+<br>
+<div class="col-md-6 well">
+
     <table class="table table-bordered">
         <thead>
             <th> Tâche </th>
@@ -10,8 +12,16 @@
         <tbody>
             <tr *ng-for="#taskEntity of people">
                 <td>{{taskEntity.task}}</td>
-                <td>{{taskEntity.name}}</td>              
+                <td>{{taskEntity.name}}</td>
             </tr>
         </tbody>
     </table>
+</div>
+<div id="openModal" [ng-class]="{modalDialog: true, showModal: ajout}">
+    <div class="corpsModal">
+        <add-task [people]="people" (task-added)="pushTaskEventReceiver($event)"> </add-task>
+        <br>
+        <button (click)='fermerAjout()' class="btn">Fermer</button>
+    </div>
+
 </div>

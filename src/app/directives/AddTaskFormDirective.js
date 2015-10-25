@@ -46,7 +46,7 @@ var AddTaskFormDirective = (function () {
             providers: [UtilisateurService_1.UtilisateurService]
         }),
         angular2_1.View({
-            template: "\n\t<div class=\"col-md-6 well\" >\n\t <b>Add task </b> <br>\n\t\t<form>\n\t\t\t<div class=\"form-group\">\t\t\n\t\t\tT\u00E2che : <input type=\"text\" #task class=\"form-control\" />   <br>\n\t\t\tAssign\u00E9e \u00E0: <input type=\"text\" #user class=\"form-control\" /><br>\n\t\t\t<!-- <input [ng-model]=\"email\" (ng-model-change)=\"email=$event\"></input> {{email}} -->\n\t\t\t<b style=\"color:red\"> {{erreurInput}} </b><br>\n\t\t\t<button (click)=\"saveTask($event,user,task)\"> Ajouter </button>\t\n\t\t\t</div>\t\n\t\t</form>\n\t</div>\n\t",
+            template: "\n\t<div class=\"col-md-12 well\" >\n\t <b>Add task </b> <br>\n\t\t<form>\n\t\t\t<div class=\"form-group\">\t\t\n\t\t\tT\u00E2che : <input type=\"text\" #task class=\"form-control\" />   <br>\n\t\t\tAssign\u00E9e \u00E0: <input type=\"text\" #user class=\"form-control\" /><br>\n\t\t\t<!-- <input [ng-model]=\"email\" (ng-model-change)=\"email=$event\"></input> {{email}} -->\n\t\t\t<b style=\"color:red\"> {{erreurInput}} </b><br>\n\t\t\t<button (click)=\"saveTask($event,user,task)\"> Ajouter </button>\t\n\t\t\t</div>\t\n\t\t</form>\n\t</div>\n\t",
             directives: [angular2_1.NgFor, angular2_1.NgModel, angular2_1.FORM_DIRECTIVES]
         }), 
         __metadata('design:paramtypes', [UtilisateurService_1.UtilisateurService])
