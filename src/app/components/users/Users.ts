@@ -31,8 +31,7 @@ export class Users {
     }
     edit(utilisateur:any){
         this.edition=true;
-        this.utilisateurAEditer=utilisateur;      
-      
+        this.utilisateurAEditer=utilisateur;    
         
     }
     fermerEdition(){

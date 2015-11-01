@@ -19,7 +19,7 @@
 </div>
 <div id="openModal" [ng-class]="{modalDialog: true, showModal: ajout}">
     <div class="corpsModal">
-        <add-task [people]="people" (task-added)="pushTaskEventReceiver($event)"> </add-task>
+        <add-task (task-added)="pushTaskEventReceiver($event)"> </add-task>
         <br>
         <button (click)='fermerAjout()' class="btn">Fermer</button>
     </div>

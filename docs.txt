@@ -1,5 +1,18 @@
-Lance compiler:
+-Lancer le  compiler de ts:
  npm run tsc
 
-@Todo:
- Document Input and Output!
+-Upgrade la version X de angular:
+npm i angular2@2.0.0-alpha.44 systemjs@0.19.2 --save --save-exact
+
+-Masquer/Override la configuration de base pour l'affichaget et le masquage des fichiers dans 
+visual code:
+// Place your settings in this file to overwrite the default settings
+{
+	"files.exclude": {
+		"**/.git": true,
+		"**/.DS_Store": true,
+		"**/app/**/*.js":true,
+		"**/app/**/*.map":true
+	}
+}
+

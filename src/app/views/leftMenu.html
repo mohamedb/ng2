@@ -1,7 +1,14 @@
 <div class="leftMenuContainer">
-            <ul class="leftMenuUl">
-                <li class="leftMenuElement"> <a [class.active]="getLinkStyle('/')" [router-link]="['/Index']">Index</a></li>
-                <li class="leftMenuElement"> <a [class.active]="getLinkStyle('/users')" [router-link]="['/Users']">Users</a></li>  
-            </ul>
-        </div>
+        <ul class="leftMenuUl">
+                <li class="leftMenuElement">
+                        <a [class.active]="getLinkStyle('/')" [router-link]="['/Index']">
+                            Index
+                        </a>
+                </li>
+                <li class="leftMenuElement">
+                        <a [class.active]="getLinkStyle('/users')" [router-link]="['/Users']">
+                           Users
+                        </a>
+                </li>
+        </ul>
 </div>

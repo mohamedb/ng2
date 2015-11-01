@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/mohamedb/ng2#readme",
   "dependencies": {
-    "angular2": "2.0.0-alpha.42",
+    "angular2": "2.0.0-alpha.45",
     "systemjs": "0.19.2"
   },
   "devDependencies": {

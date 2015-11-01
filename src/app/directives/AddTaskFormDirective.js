@@ -13,29 +13,26 @@ var angular2_1 = require('angular2/angular2');
 var UtilisateurService_1 = require('../services/UtilisateurService');
 var AddTaskFormDirective = (function () {
     //people: Array<any>;
-    function AddTaskFormDirective(peopleService) {
+    function AddTaskFormDirective(utilisateurService) {
+        var _this = this;
         this.taskAdded = new angular2_1.EventEmitter();
         this.email = "t";
         this.erreurInput = "";
-        // setInterval(() => this.everySecond.next("event"), 1000);
-        // peopleService.getPeople().subscribe(people => this.people = people);
+        utilisateurService.getUtilisateurs().subscribe(function (listeUtilisateurs) { return _this.utilisateurs = listeUtilisateurs; });
     }
-    AddTaskFormDirective.prototype.saveTask = function ($event, user, task) {
+    AddTaskFormDirective.prototype.onSubmit = function (formulaireData) {
         this.erreurInput = "";
+        console.log(JSON.stringify(formulaireData, null, 2));
         //var resp=[user.value,task.value,"ko"];
-        if (user.value.length < 2 || task.value.length < 2) {
-            this.erreurInput = "Merci de vérifier le formulaire";
+        /*if(user.value.length<2 || task.value.length <2 || utilisateur.value==''){
+            this.erreurInput= "Merci de vérifier le formulaire";
             $event.preventDefault();
             return 0;
         }
-        console.log("user =>: " + user.value);
-        this.taskAdded.next({ name: user.value, task: task.value });
-        $event.preventDefault();
+        console.log("user =>: "+user.value);
+        this.taskAdded.next({name:user.value,task:task.value}); */
+        //$event.preventDefault();  
     };
-    __decorate([
-        angular2_1.Input(), 
-        __metadata('design:type', Array)
-    ], AddTaskFormDirective.prototype, "people");
     __decorate([
         angular2_1.Output(), 
         __metadata('design:type', Object)
@@ -46,7 +43,7 @@ var AddTaskFormDirective = (function () {
             providers: [UtilisateurService_1.UtilisateurService]
         }),
         angular2_1.View({
-            template: "\n\t<div class=\"col-md-12 well\" >\n\t <b>Add task </b> <br>\n\t\t<form>\n\t\t\t<div class=\"form-group\">\t\t\n\t\t\tT\u00E2che : <input type=\"text\" #task class=\"pull-right\" />   <br>\n\t\t\tAssign\u00E9e \u00E0: <input type=\"text\" #user class=\"pull-right\" /><br>\n\t\t\t<!-- <input [ng-model]=\"email\" (ng-model-change)=\"email=$event\"></input> {{email}} -->\n\t\t\t<b style=\"color:red\"> {{erreurInput}} </b><br>\n\t\t\t<button (click)=\"saveTask($event,user,task)\"> Ajouter </button>\t\n\t\t\t</div>\t\n\t\t</form>\n\t</div>\n\t",
+            template: "\n\t<div class=\"col-md-12 well\" >\n\t <b>Ajouter une tache </b> <br>\n\t\t<form #f=\"form\" (ng-submit)=\"onSubmit(f.value)\">\n\t\t  <div ng-control-group=\"tache\">\n\t\t \t<p>\n\t\t\tT\u00E2che : <input type=\"text\" ng-control=\"titre\" />\n\t\t\t</p>\n\t\t    <p>\n\t\t\tAssign\u00E9e \u00E0: \n\t\t\t<select ng-control=\"executeur\">\n\t\t\t  <option   *ng-for=\"#u of utilisateurs\" [value]=\"u.name\">{{u.name}} <i>{{u.email}}</i></option>\n\t\t    </select>\n\t\t\t</p>\n\t\t\t<b style=\"color:red\"> {{erreurInput}} </b><br>\n\t\t\t</div>\n\t\t\t<button type='submit'>Enregistrer</button>\t \n\t\t</form>\n\t</div>\n\t",
             directives: [angular2_1.NgFor, angular2_1.NgModel, angular2_1.FORM_DIRECTIVES]
         }), 
         __metadata('design:paramtypes', [UtilisateurService_1.UtilisateurService])
