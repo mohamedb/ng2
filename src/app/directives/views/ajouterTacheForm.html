@@ -1,0 +1,29 @@
+<div class="col-md-12 well">
+    <b>Ajouter une tâche </b>
+    <br>
+    <form #f="form" (ng-submit)="onSubmit(f.value)">
+        <div ng-control-group="tache">
+            <p>
+                Tâche :
+                <input type="text" ng-control="titre" />
+            </p>
+            <!--p>
+                Date début: <input type="date"  ng-control="dateDebut" />
+            </p -->
+            <p>
+                Assignée à:
+                <select ng-control="executeur">
+                    <option *ng-for="#u of utilisateurs" [value]="u.name">{{u.name}} <i>{{u.email}}</i></option>
+                </select>
+            </p>
+            <!-- <input-datetime [date-initiale]="datetimeDebut" (update-date)="updateDatetime($event)" ></input-datetime> -->
+
+            <input type='text' id='datetimepicker1' #d [value]="dateInitiale" (mouseover)="update($event,d)" />
+            <b>data sélectionnée: {{datetimeDebut}}</b>
+            <br>
+            <b style="color:red"> {{erreurInput}} </b>
+            <br>
+        </div>
+        <button type='submit'>Enregistrer</button>
+    </form>
+</div>

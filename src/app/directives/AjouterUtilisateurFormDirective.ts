@@ -9,26 +9,7 @@ import {UtilisateurService} from '../services/UtilisateurService';
 
 })
 @View({
-	template: `
-	<div>
-	<div class="well" >
-	    <b *ng-if="utilisateur">Edition de: {{utilisateur.name}}	</b>
-		<form [ng-form-model]="formGroup">
-        <div ng-control-group="infoUtilisateur">
-          <h3>Informations personnelles:</h3>
-          <p>Nom:   <input ng-control="name" [(ng-model)]='utilisateur.name' ><span *ng-if="!ctrlName.valid" > [required]</span></p>
-          <p>Email: <input ng-control="email" [(ng-model)]='utilisateur.email' ><span *ng-if="!ctrlEmail.valid"> [required]</span></p>
-		  <p>Rôle: 
-		  <select ng-control="roles">
-			<option *ng-for="#r of utilisateur.roles">{{r}}</option>
-		  </select>
-		  <p>
-        </div>
-		<button (click)="enregistrer()">Enregistrer </button>
-      </form>
-	</div>
-	</div>
-	`,
+	templateUrl:'app/directives/views/ajouterUtilisateurForm.html',
 	directives: [CORE_DIRECTIVES, FORM_DIRECTIVES]
 })
 /**

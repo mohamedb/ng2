@@ -4,7 +4,15 @@
         "my-app": {}
     },
     "attributes": {
-        "*ng-for": {},
+        "*ng-for": {
+            "context": "option"
+        },
+        "#f": {
+            "context": "form"
+        },
+        "(ng-submit)": {
+            "context": "form"
+        },
         "aria-expanded": {},
         "[class.active]": {},
         "[router-link]": {}

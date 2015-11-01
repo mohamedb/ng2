@@ -50,7 +50,7 @@ var AjouterUtilisateurFormDirective = (function () {
             providers: [UtilisateurService_1.UtilisateurService]
         }),
         angular2_1.View({
-            template: "\n\t<div>\n\t<div class=\"well\" >\n\t    <b *ng-if=\"utilisateur\">Edition de: {{utilisateur.name}}\t</b>\n\t\t<form [ng-form-model]=\"formGroup\">\n        <div ng-control-group=\"infoUtilisateur\">\n          <h3>Informations personnelles:</h3>\n          <p>Nom:   <input ng-control=\"name\" [(ng-model)]='utilisateur.name' ><span *ng-if=\"!ctrlName.valid\" > [required]</span></p>\n          <p>Email: <input ng-control=\"email\" [(ng-model)]='utilisateur.email' ><span *ng-if=\"!ctrlEmail.valid\"> [required]</span></p>\n\t\t  <p>R\u00F4le: \n\t\t  <select ng-control=\"roles\">\n\t\t\t<option *ng-for=\"#r of utilisateur.roles\">{{r}}</option>\n\t\t  </select>\n\t\t  <p>\n        </div>\n\t\t<button (click)=\"enregistrer()\">Enregistrer </button>\n      </form>\n\t</div>\n\t</div>\n\t",
+            templateUrl: 'app/directives/views/ajouterUtilisateurForm.html',
             directives: [angular2_1.CORE_DIRECTIVES, angular2_1.FORM_DIRECTIVES]
         }), 
         __metadata('design:paramtypes', [UtilisateurService_1.UtilisateurService])

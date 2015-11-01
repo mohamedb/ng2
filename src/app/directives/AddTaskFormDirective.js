@@ -11,18 +11,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var angular2_1 = require('angular2/angular2');
 var UtilisateurService_1 = require('../services/UtilisateurService');
+var Utils_1 = require('../services/Utils');
+var DatePicker_1 = require('./DatePicker');
 var AddTaskFormDirective = (function () {
     //people: Array<any>;
-    function AddTaskFormDirective(utilisateurService) {
+    function AddTaskFormDirective(utilisateurService, frDatetime) {
         var _this = this;
         this.taskAdded = new angular2_1.EventEmitter();
-        this.email = "t";
         this.erreurInput = "";
         utilisateurService.getUtilisateurs().subscribe(function (listeUtilisateurs) { return _this.utilisateurs = listeUtilisateurs; });
+        jQuery('#datetimepicker1').datetimepicker({
+            locale: 'fr',
+            daysOfWeekDisabled: [0, 6]
+        });
+        this.datetimeDebut = frDatetime.setDate(new Date()).toString();
     }
     AddTaskFormDirective.prototype.onSubmit = function (formulaireData) {
         this.erreurInput = "";
         console.log(JSON.stringify(formulaireData, null, 2));
+        console.log("dateDebut" + this.datetimeDebut);
         //var resp=[user.value,task.value,"ko"];
         /*if(user.value.length<2 || task.value.length <2 || utilisateur.value==''){
             this.erreurInput= "Merci de vérifier le formulaire";
@@ -33,6 +40,10 @@ var AddTaskFormDirective = (function () {
         this.taskAdded.next({name:user.value,task:task.value}); */
         //$event.preventDefault();  
     };
+    AddTaskFormDirective.prototype.update = function ($event, d) {
+        console.log("directive @dateInitiale: " + d.value);
+        this.datetimeDebut = d.value;
+    };
     __decorate([
         angular2_1.Output(), 
         __metadata('design:type', Object)
@@ -40,13 +51,13 @@ var AddTaskFormDirective = (function () {
     AddTaskFormDirective = __decorate([
         angular2_1.Component({
             selector: 'add-task',
-            providers: [UtilisateurService_1.UtilisateurService]
+            providers: [UtilisateurService_1.UtilisateurService, Utils_1.FrDatetime]
         }),
         angular2_1.View({
-            template: "\n\t<div class=\"col-md-12 well\" >\n\t <b>Ajouter une tache </b> <br>\n\t\t<form #f=\"form\" (ng-submit)=\"onSubmit(f.value)\">\n\t\t  <div ng-control-group=\"tache\">\n\t\t \t<p>\n\t\t\tT\u00E2che : <input type=\"text\" ng-control=\"titre\" />\n\t\t\t</p>\n\t\t    <p>\n\t\t\tAssign\u00E9e \u00E0: \n\t\t\t<select ng-control=\"executeur\">\n\t\t\t  <option   *ng-for=\"#u of utilisateurs\" [value]=\"u.name\">{{u.name}} <i>{{u.email}}</i></option>\n\t\t    </select>\n\t\t\t</p>\n\t\t\t<b style=\"color:red\"> {{erreurInput}} </b><br>\n\t\t\t</div>\n\t\t\t<button type='submit'>Enregistrer</button>\t \n\t\t</form>\n\t</div>\n\t",
-            directives: [angular2_1.NgFor, angular2_1.NgModel, angular2_1.FORM_DIRECTIVES]
+            templateUrl: 'app/directives/views/ajouterTacheForm.html',
+            directives: [angular2_1.NgFor, angular2_1.NgModel, angular2_1.FORM_DIRECTIVES, DatePicker_1.DatePicker]
         }), 
-        __metadata('design:paramtypes', [UtilisateurService_1.UtilisateurService])
+        __metadata('design:paramtypes', [UtilisateurService_1.UtilisateurService, Utils_1.FrDatetime])
     ], AddTaskFormDirective);
     return AddTaskFormDirective;
 })();
