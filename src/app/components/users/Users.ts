@@ -3,7 +3,8 @@
 
 import {Component,Output,EventEmitter, View, bootstrap, CORE_DIRECTIVES,provide} from 'angular2/angular2';
 import {Http, HTTP_BINDINGS, ConnectionBackend} from 'angular2/http';
-import { ROUTER_DIRECTIVES,RouterLink, RouteConfig, Location,ROUTER_PROVIDERS, LocationStrategy, HashLocationStrategy, Route, AsyncRoute, Router } from 'angular2/router';
+import { ROUTER_DIRECTIVES,RouterLink, RouteConfig, Location,
+         ROUTER_PROVIDERS, LocationStrategy, HashLocationStrategy, Route, AsyncRoute, Router } from 'angular2/router';
 import {TaskService}   from '../../services/TaskService';
 import {UtilisateurService} from '../../services/UtilisateurService';
 import {TaskModel}     from '../../models/TaskModel';

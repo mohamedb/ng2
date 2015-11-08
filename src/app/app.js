@@ -33,7 +33,7 @@ var AppComponent = (function () {
             providers: [TaskService_1.TaskService, UtilisateurService_1.UtilisateurService, router_1.RouterLink, router_1.Location]
         }),
         angular2_1.View({
-            templateUrl: 'app/views/firstPage.html',
+            templateUrl: 'app/main.html',
             directives: [angular2_1.NgFor, router_1.ROUTER_DIRECTIVES, LeftMenuDirective_1.LeftMenuDirective]
         }),
         router_1.RouteConfig([

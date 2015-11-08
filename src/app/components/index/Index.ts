@@ -1,12 +1,13 @@
  
 import {Component, View, bootstrap, CORE_DIRECTIVES} from 'angular2/angular2';
 import {Http, HTTP_BINDINGS, ConnectionBackend} from 'angular2/http';
-import { ROUTER_DIRECTIVES, RouterLink, RouteConfig, Location, ROUTER_PROVIDERS, LocationStrategy, HashLocationStrategy,
+import { ROUTER_DIRECTIVES, RouterLink, RouteConfig, 
+         Location, ROUTER_PROVIDERS, LocationStrategy, HashLocationStrategy,
          Route, AsyncRoute, Router } from 'angular2/router';
 import {TaskService}   from '../../services/TaskService';
 import {UtilisateurService} from '../../services/UtilisateurService';
 import {TaskModel}     from '../../models/TaskModel';
-import {AddTaskFormDirective}     from '../../directives/AddTaskFormDirective';
+import {AjouterTacheFormDirective}     from '../../directives/AjouterTacheFormDirective';
 import {NotificationDirective}              from '../../directives/NotificationDirective';
 
 
@@ -18,7 +19,7 @@ import {NotificationDirective}              from '../../directives/NotificationD
 })
 @View({
     templateUrl: 'app/components/index/index.html',
-    directives: [CORE_DIRECTIVES,ROUTER_DIRECTIVES,AddTaskFormDirective,NotificationDirective]
+    directives: [CORE_DIRECTIVES,ROUTER_DIRECTIVES,AjouterTacheFormDirective,NotificationDirective]
 })
 
 export class Index {

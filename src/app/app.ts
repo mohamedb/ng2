@@ -17,7 +17,7 @@ import {LeftMenuDirective} from './directives/LeftMenuDirective';
     providers: [TaskService, UtilisateurService,RouterLink,Location]
 })
 @View({
-    templateUrl: 'app/views/firstPage.html',
+    templateUrl: 'app/main.html',
     directives: [NgFor,ROUTER_DIRECTIVES,LeftMenuDirective]
 })
 @RouteConfig([

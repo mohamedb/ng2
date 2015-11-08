@@ -13,7 +13,7 @@ var angular2_1 = require('angular2/angular2');
 var router_1 = require('angular2/router');
 var TaskService_1 = require('../../services/TaskService');
 var UtilisateurService_1 = require('../../services/UtilisateurService');
-var AddTaskFormDirective_1 = require('../../directives/AddTaskFormDirective');
+var AjouterTacheFormDirective_1 = require('../../directives/AjouterTacheFormDirective');
 var NotificationDirective_1 = require('../../directives/NotificationDirective');
 var Index = (function () {
     function Index(taskS, peopleService) {
@@ -48,7 +48,7 @@ var Index = (function () {
         }),
         angular2_1.View({
             templateUrl: 'app/components/index/index.html',
-            directives: [angular2_1.CORE_DIRECTIVES, router_1.ROUTER_DIRECTIVES, AddTaskFormDirective_1.AddTaskFormDirective, NotificationDirective_1.NotificationDirective]
+            directives: [angular2_1.CORE_DIRECTIVES, router_1.ROUTER_DIRECTIVES, AjouterTacheFormDirective_1.AjouterTacheFormDirective, NotificationDirective_1.NotificationDirective]
         }), 
         __metadata('design:paramtypes', [TaskService_1.TaskService, UtilisateurService_1.UtilisateurService])
     ], Index);

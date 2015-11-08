@@ -6,7 +6,7 @@ import { ROUTER_DIRECTIVES, RouterLink, RouteConfig, Location, ROUTER_PROVIDERS,
 
 })
 @View({
-	templateUrl: "app/views/leftMenu.html",
+	templateUrl: "app/directives/views/leftMenu.html", 
 	directives: [NgFor, NgModel, FORM_DIRECTIVES, ROUTER_DIRECTIVES]
 })
 export class LeftMenuDirective {

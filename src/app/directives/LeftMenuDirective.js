@@ -37,7 +37,7 @@ var LeftMenuDirective = (function () {
             providers: [router_1.RouterLink, router_1.Location]
         }),
         angular2_1.View({
-            templateUrl: "app/views/leftMenu.html",
+            templateUrl: "app/directives/views/leftMenu.html",
             directives: [angular2_1.NgFor, angular2_1.NgModel, angular2_1.FORM_DIRECTIVES, router_1.ROUTER_DIRECTIVES]
         }), 
         __metadata('design:paramtypes', [router_1.Location])

@@ -11,7 +11,7 @@ import {DatePicker} from './DatePicker';
 	templateUrl: 'app/directives/views/ajouterTacheForm.html',
 	directives: [NgFor,NgModel, FORM_DIRECTIVES,DatePicker]
 })
-export class AddTaskFormDirective {
+export class AjouterTacheFormDirective {
 	utilisateurs: Array<any>;	 
 	@Output() taskAdded = new EventEmitter();
 	datetimeDebut:string; 
