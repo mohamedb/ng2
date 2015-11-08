@@ -1,5 +1,6 @@
-<div class="well">
+<div class="panel">
   <b>Liste des utilisateurs </b>
+  <button (click)='ajouter()' class="btn btn-blue btn-xs pull-right">Nouvel utilisateur</button>
   <table class="table">
     <thead>
       <tr>
@@ -19,33 +20,27 @@
           <b *ng-for="#role of utilisateur.roles">{{role}}, </b>
         </td>
         <td class="dropdown">
-   
-        <div class=" dropdown-toggle icon-preview btn btn-xs" data-toggle="dropdown">
-          <i class="mdi-navigation-more-vert"></i>
-        </div>
-        <ul class="dropdown-menu">          
-           <li><a (click)="edit(utilisateur)" href="javascript:void(0)" class="btn btn-flat btn-warning btn-xs">
-             <!-- <i class="mdi-content-create pull-right"> --></i>Edit</a>
-           </li>
-            <li><a (click)="edit(utilisateur)" href="javascript:void(0)" class="btn btn-flat btn-danger btn-xs">
-             <!-- <i class="mdi-content-create pull-right"> --></i>Supprimer</a>
-           </li>
-           
-           
-        </ul>
-     
-          
+          <div class=" dropdown-toggle icon-preview btn btn-xs" data-toggle="dropdown">
+            <i class="mdi-navigation-more-vert"></i>
+          </div>
+          <ul class="dropdown-menu">
+            <li><a (click)="edit(utilisateur)" href="javascript:void(0)" class="btn btn-flat btn-warning btn-xs">
+                 Editer</a>
+            </li>
+            <li><a (click)="supprimer(utilisateur)" href="javascript:void(0)" class="btn btn-flat btn-danger btn-xs">
+              Supprimer</a>
+            </li>
+          </ul>
         </td>
       </tr>
     </tbody>
   </table>
 </div>
-<div>
-  <div id="openModal" [ng-class]="{modalDialog: true, showModal: edition}">    
+  <div id="openModal" [ng-class]="{modalDialog: true, showModal: edition}">
     <div class="corpsModal" *ng-if="edition">
       <h6>Ajouter/Editer utilisateur </h6>
-      <ajouter-utilisateur-form [utilisateur]="utilisateurAEditer"></ajouter-utilisateur-form>
+      <ajouter-utilisateur-form [utilisateur]="utilisateurAEditer" (enregistrement)="enregistrer($event)"></ajouter-utilisateur-form>
       <br>
-      <button (click)="fermerEdition()" class="btn btn-gray">Fermer</button>
+      <button (click)="fermerEdition()" class="btn btn-default btn-xs">Fermer</button>
     </div>
   </div>

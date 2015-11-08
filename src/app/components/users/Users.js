@@ -1,5 +1,7 @@
 /// <reference path="../../services/TaskService.ts"/>
 /// <reference path="../../models/TaskModel.ts"/>
+/// <reference path="../../../../typings/tsd.d.ts"/>
+/// <reference path="../../../../typings/underscore/underscore.d.ts"/>
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
     switch (arguments.length) {
@@ -18,13 +20,29 @@ var AjouterUtilisateurFormDirective_1 = require('../../directives/AjouterUtilisa
 var Users = (function () {
     function Users(utilisateurService, location) {
         var _this = this;
-        this.utilisateurAEditer = { name: "", email: "" };
+        this.utilisateurAEditer = { name: "", email: "", roles: ['User', 'Manager'], id: 7 };
         this.edition = false;
         utilisateurService.getUtilisateurs().subscribe(function (people) { return _this.utilisateurs = people; });
     }
+    Users.prototype.enregistrer = function (ajoutFrom) {
+        console.log(JSON.stringify(ajoutFrom));
+        var u = ajoutFrom.infoUtilisateur; //var temporaire pour simulation
+        u.id = 7;
+        u.roles = [ajoutFrom.infoUtilisateur.roles];
+        this.utilisateurs.push(u);
+        this.edition = false;
+        u = null;
+        ajoutFrom = null;
+    };
+    Users.prototype.ajouter = function () {
+        this.edition = true;
+    };
     Users.prototype.edit = function (utilisateur) {
         this.edition = true;
         this.utilisateurAEditer = utilisateur;
+    };
+    Users.prototype.supprimer = function (utilisateurASupp) {
+        this.utilisateurs = _.reject(this.utilisateurs, function (u) { return u.email === utilisateurASupp.email; });
     };
     Users.prototype.fermerEdition = function () {
         this.edition = false;

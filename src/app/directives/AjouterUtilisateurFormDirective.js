@@ -13,10 +13,10 @@ var angular2_1 = require('angular2/angular2');
 var UtilisateurService_1 = require('../services/UtilisateurService');
 var AjouterUtilisateurFormDirective = (function () {
     function AjouterUtilisateurFormDirective(utlisateurService) {
+        this.enregistrement = new angular2_1.EventEmitter();
         this.ctrlName = new angular2_1.Control(" ", angular2_1.Validators.required);
         this.ctrlEmail = new angular2_1.Control('', angular2_1.Validators.required);
         this.ctrlRoles = new angular2_1.Control('Manager', angular2_1.Validators.required);
-        //@Output() taskAdded = new EventEmitter();	 
         this.erreurInput = "";
         this.formGroup = new angular2_1.ControlGroup({
             infoUtilisateur: new angular2_1.ControlGroup({
@@ -29,21 +29,17 @@ var AjouterUtilisateurFormDirective = (function () {
     AjouterUtilisateurFormDirective.prototype.enregistrer = function ($event) {
         console.log(JSON.stringify(this.formGroup.value, null, 2));
         this.erreurInput = "";
-        //console.log(JSON.stringify(this.utilisateur));	
-        //var resp=[user.value,task.value,"ko"];
-        /*if(utilisateur.name.length <2 || utilisateur.email.length <2 ){
-            this.erreurInput= "Merci de vérifier le formulaire";
-            $event.preventDefault();
-            return 2;
-        }
-        */
-        //this.taskAdded.next({name:user.value,task:task.value}); 
+        this.enregistrement.next(this.formGroup.value);
         //$event.preventDefault();  
     };
     __decorate([
         angular2_1.Input(), 
         __metadata('design:type', Object)
     ], AjouterUtilisateurFormDirective.prototype, "utilisateur");
+    __decorate([
+        angular2_1.Output(), 
+        __metadata('design:type', Object)
+    ], AjouterUtilisateurFormDirective.prototype, "enregistrement");
     AjouterUtilisateurFormDirective = __decorate([
         angular2_1.Component({
             selector: 'ajouter-utilisateur-form',
