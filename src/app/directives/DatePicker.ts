@@ -16,8 +16,7 @@ import {UtilisateurService} from '../services/UtilisateurService';
 					  id='datetimepicker1'
 					  #d
 					  [value]="dateInitiale"
-					  (keyup)="update($event,d)"
-					  
+					  (keyup)="update($event,d)					  
 					 />
 	</p>
 	`,

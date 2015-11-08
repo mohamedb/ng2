@@ -1,6 +1,6 @@
 <div class="well">
   <b>Liste des utilisateurs </b>
-  <table class="table table-striped">
+  <table class="table">
     <thead>
       <tr>
         <th>#</th>
@@ -12,14 +12,29 @@
     </thead>
     <tbody>
       <tr *ng-for="#utilisateur of utilisateurs">
-        <th scope="row">{{utilisateur.id}}</th>
+        <th>{{utilisateur.id}}</th>
         <td>{{utilisateur.name}}</td>
         <td>{{utilisateur.email}}</td>
         <td>
           <b *ng-for="#role of utilisateur.roles">{{role}}, </b>
         </td>
-        <td>
-          <button (click)="edit(utilisateur)">Edit</button>
+        <td class="dropdown">
+   
+        <div class=" dropdown-toggle icon-preview btn btn-xs" data-toggle="dropdown">
+          <i class="mdi-navigation-more-vert"></i>
+        </div>
+        <ul class="dropdown-menu">          
+           <li><a (click)="edit(utilisateur)" href="javascript:void(0)" class="btn btn-flat btn-warning btn-xs">
+             <!-- <i class="mdi-content-create pull-right"> --></i>Edit</a>
+           </li>
+            <li><a (click)="edit(utilisateur)" href="javascript:void(0)" class="btn btn-flat btn-danger btn-xs">
+             <!-- <i class="mdi-content-create pull-right"> --></i>Supprimer</a>
+           </li>
+           
+           
+        </ul>
+     
+          
         </td>
       </tr>
     </tbody>
@@ -31,6 +46,6 @@
       <h6>Ajouter/Editer utilisateur </h6>
       <ajouter-utilisateur-form [utilisateur]="utilisateurAEditer"></ajouter-utilisateur-form>
       <br>
-      <button (click)="fermerEdition()" class="btn">Fermer</button>
+      <button (click)="fermerEdition()" class="btn btn-gray">Fermer</button>
     </div>
   </div>

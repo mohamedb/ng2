@@ -4,12 +4,11 @@
         "my-app": {}
     },
     "attributes": {
-        "*ng-for": {
-            "context": "option"
-        },
+        "*ng-for": {},
         "#f": {
             "context": "form"
         },
+        "(click)": {},
         "(ng-submit)": {
             "context": "form"
         },

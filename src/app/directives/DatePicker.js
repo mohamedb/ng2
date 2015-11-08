@@ -41,7 +41,7 @@ var DatePicker = (function () {
             providers: [UtilisateurService_1.UtilisateurService]
         }),
         angular2_1.View({
-            template: "\n\t<p>\t\n\t DatePickerDirective:\n\t   <input type='text'\n\t\t\t\t\t  id='datetimepicker1'\n\t\t\t\t\t  #d\n\t\t\t\t\t  [value]=\"dateInitiale\"\n\t\t\t\t\t  (keyup)=\"update($event,d)\"\n\t\t\t\t\t  \n\t\t\t\t\t />\n\t</p>\n\t",
+            template: "\n\t<p>\t\n\t DatePickerDirective:\n\t   <input type='text'\n\t\t\t\t\t  id='datetimepicker1'\n\t\t\t\t\t  #d\n\t\t\t\t\t  [value]=\"dateInitiale\"\n\t\t\t\t\t  (keyup)=\"update($event,d)\t\t\t\t\t  \n\t\t\t\t\t />\n\t</p>\n\t",
             directives: [angular2_1.NgFor, angular2_1.NgModel, angular2_1.FORM_DIRECTIVES]
         }), 
         __metadata('design:paramtypes', [])
