@@ -1,4 +1,4 @@
-import {Component, View, NgFor, Input, Output, EventEmitter, NgModel, FORM_DIRECTIVES} from 'angular2/angular2';
+import {Component, View,CORE_DIRECTIVES, Input, Output, FORM_DIRECTIVES} from 'angular2/angular2';
 import { ROUTER_DIRECTIVES, RouterLink, RouteConfig, Location, ROUTER_PROVIDERS, LocationStrategy, HashLocationStrategy, Route, AsyncRoute, Router } from 'angular2/router';
 @Component({
 	selector: 'left-menu',
@@ -7,14 +7,13 @@ import { ROUTER_DIRECTIVES, RouterLink, RouteConfig, Location, ROUTER_PROVIDERS,
 })
 @View({
 	templateUrl: "app/directives/views/leftMenu.html", 
-	directives: [NgFor, NgModel, FORM_DIRECTIVES, ROUTER_DIRECTIVES]
+	directives: [ CORE_DIRECTIVES,FORM_DIRECTIVES, ROUTER_DIRECTIVES]
 })
 export class LeftMenuDirective {
-	@Input() elements: Array<any>;
-	@Output() everySecond = new EventEmitter();
+	@Input() elements: Array<any>;	 
 	location: Location;
-
-    tasks: Array<any>;
+    visible:boolean =true;
+   
 
     constructor(location: Location) {
         this.location = location;
@@ -22,9 +21,17 @@ export class LeftMenuDirective {
     getLinkStyle(path) {
         return this.location.path().indexOf(path) > -1;
     }
-    updateMenu($event: any, someData: any) {
-		console.log("user =>: " + someData.value);
-		this.everySecond.next({ "ABC": "XYZ" });
-	}
+    showMenu(){
+        this.visible=true;
+    }
+    hideMenu(){
+        this.visible=false;
+    }
+    setEtat(etat:boolean){
+        this.visible=etat;
+    }
+    flip(){
+        this.visible=!this.visible;
+    }
 
 }

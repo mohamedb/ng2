@@ -1,4 +1,5 @@
-<div class="leftMenuContainer">
+<button (click)="flip()" class="btn btn-xs"><i class="mdi-action-view-headline"></i></button>
+<div [ng-class]="{showLeftmenu:visible,hideLeftmenu:!visible}" class="leftMenuContainer" >
         <ul class="leftMenuUl">
                 <li class="leftMenuElement">
                         <a [class.active]="getLinkStyle('/')" [router-link]="['/Index']">

@@ -13,24 +13,28 @@ var angular2_1 = require('angular2/angular2');
 var router_1 = require('angular2/router');
 var LeftMenuDirective = (function () {
     function LeftMenuDirective(location) {
-        this.everySecond = new angular2_1.EventEmitter();
+        this.visible = true;
         this.location = location;
     }
     LeftMenuDirective.prototype.getLinkStyle = function (path) {
         return this.location.path().indexOf(path) > -1;
     };
-    LeftMenuDirective.prototype.updateMenu = function ($event, someData) {
-        console.log("user =>: " + someData.value);
-        this.everySecond.next({ "ABC": "XYZ" });
+    LeftMenuDirective.prototype.showMenu = function () {
+        this.visible = true;
+    };
+    LeftMenuDirective.prototype.hideMenu = function () {
+        this.visible = false;
+    };
+    LeftMenuDirective.prototype.setEtat = function (etat) {
+        this.visible = etat;
+    };
+    LeftMenuDirective.prototype.flip = function () {
+        this.visible = !this.visible;
     };
     __decorate([
         angular2_1.Input(), 
         __metadata('design:type', Array)
     ], LeftMenuDirective.prototype, "elements");
-    __decorate([
-        angular2_1.Output(), 
-        __metadata('design:type', Object)
-    ], LeftMenuDirective.prototype, "everySecond");
     LeftMenuDirective = __decorate([
         angular2_1.Component({
             selector: 'left-menu',
@@ -38,7 +42,7 @@ var LeftMenuDirective = (function () {
         }),
         angular2_1.View({
             templateUrl: "app/directives/views/leftMenu.html",
-            directives: [angular2_1.NgFor, angular2_1.NgModel, angular2_1.FORM_DIRECTIVES, router_1.ROUTER_DIRECTIVES]
+            directives: [angular2_1.CORE_DIRECTIVES, angular2_1.FORM_DIRECTIVES, router_1.ROUTER_DIRECTIVES]
         }), 
         __metadata('design:paramtypes', [router_1.Location])
     ], LeftMenuDirective);

@@ -14,6 +14,12 @@ body {
     top: 0px;
     font-size: x-large;
 }
+.showLeftmenu{
+    display: normal;
+}
+.hideLeftmenu{
+    display: none;
+}
 
 .panel-primary > .panel-heading {
     background-color: #607D8B;
