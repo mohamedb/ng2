@@ -9,6 +9,16 @@ body {
   font-size: 13px;
 }
 
+.btn.btn-fab i {
+    position: relative;
+    top: 0px;
+    font-size: x-large;
+}
+
+.panel-primary > .panel-heading {
+    background-color: #607D8B;
+}
+
 .btn-blue{
     background-color: #2196F3 !important;
     color: white !important;
